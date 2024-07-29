@@ -1,1 +1,2 @@
 newsroom-core @ git+https://github.com/superdesk/newsroom-core.git@release/2.7
+setuptools<72
