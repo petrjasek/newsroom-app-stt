@@ -6,7 +6,6 @@ from newsroom.types import AuthProviderType
 from newsroom.web.default_settings import (
     ELASTICSEARCH_SETTINGS,
     CONTENTAPI_ELASTICSEARCH_SETTINGS,
-    CLIENT_CONFIG,
     BLUEPRINTS as DEFAULT_BLUEPRINT,
     CORE_APPS as DEFAULT_CORE_APPS,
     CELERY_BEAT_SCHEDULE as CELERY_BEAT_SCHEDULE_DEFAULT,
@@ -21,8 +20,6 @@ TRANSLATIONS_PATH = SERVER_PATH.joinpath("translations")
 
 SITE_NAME = "Mediapankki"
 COPYRIGHT_HOLDER = "STT"
-
-CLIENT_CONFIG.update({"collapsed_search_by_default": True})
 
 USER_MANUAL = "https://stt.fi/ajankohtaista-tietoa-media-asiakkaille/stt-mediapankki/"
 PRIVACY_POLICY = PRIVACY_POLICY_EN = "https://stt.fi/tietosuoja/"
@@ -221,40 +218,42 @@ AGENDA_DEFAULT_FILTER_HIDE_PLANNING = True
 
 SAML_AUTH_ENABLED = bool(os.environ.get("SAML_PATH", False))
 
-WIRE_TIME_FILTERS.extend([
-    {
-        "name": "2020-",
-        "filter": "2020-2029",
-        "default": False,
-        "query": {
-            "gte": "2019-12-31T22:00:00",
+WIRE_TIME_FILTERS.extend(
+    [
+        {
+            "name": "2020-",
+            "filter": "2020-2029",
+            "default": False,
+            "query": {
+                "gte": "2019-12-31T22:00:00",
+            },
         },
-    },
-    {
-        "name": "2010-2019",
-        "filter": "2010-2019",
-        "default": False,
-        "query": {
-            "gte": "2009-12-31T22:00:00",
-            "lt": "2019-12-31T22:00:00",
+        {
+            "name": "2010-2019",
+            "filter": "2010-2019",
+            "default": False,
+            "query": {
+                "gte": "2009-12-31T22:00:00",
+                "lt": "2019-12-31T22:00:00",
+            },
         },
-    },
-    {
-        "name": "2000-2009",
-        "filter": "2000-2009",
-        "default": False,
-        "query": {
-            "gte": "1999-12-31T22:00:00",
-            "lt": "2009-12-31T22:00:00",
+        {
+            "name": "2000-2009",
+            "filter": "2000-2009",
+            "default": False,
+            "query": {
+                "gte": "1999-12-31T22:00:00",
+                "lt": "2009-12-31T22:00:00",
+            },
         },
-    },
-    {
-        "name": "1992-1999",
-        "filter": "1992-1999",
-        "default": False,
-        "query": {
-            "gte": "1989-12-31T22:00:00",
-            "lt": "1999-12-31T22:00:00",
+        {
+            "name": "1992-1999",
+            "filter": "1992-1999",
+            "default": False,
+            "query": {
+                "gte": "1989-12-31T22:00:00",
+                "lt": "1999-12-31T22:00:00",
+            },
         },
-    },
-])
+    ]
+)
