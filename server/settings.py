@@ -12,6 +12,7 @@ from newsroom.web.default_settings import (
     CLIENT_LOCALE_FORMATS,
     AUTH_PROVIDERS,
     WIRE_TIME_FILTERS,
+    AGENDA_SEARCH_FIELDS,
 )
 
 SERVER_PATH = pathlib.Path(__file__).resolve().parent
@@ -257,3 +258,6 @@ WIRE_TIME_FILTERS.extend(
         },
     ]
 )
+
+# STTNHUB-375
+AGENDA_SEARCH_FIELDS.append("invitation_details")
